@@ -108,6 +108,8 @@ OR Directly from the Delete option -
 
 ## References
 
+Machine Learning Engineer with Microsoft Azure Program by Udacity 
+
 [HyperDrive Config](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriveconfig?view=azure-ml-py)
 
 [Sklearn](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py)
