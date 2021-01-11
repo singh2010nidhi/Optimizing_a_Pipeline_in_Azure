@@ -29,13 +29,9 @@ Here `BanditPolicy` was used as a stopping policy. Bandit policy is based on sla
 
 ![](images/HyperDriveRunDetails.png)
 
-#### Figure 3 : Azure ML Studio Hyper Drive Run Metrics - 
+#### Figure 3 : Azure ML Studio Hyper Drive Run Metrics - ####
 
 ![](images/HyperDriveRunMetrics.png)
-
-#### Figure 4 : Azure ML Studio Hyper Drive Running Details from notebook - ####
-
-![](images/HyperDriveRunningDetails.png)
 
 ## AutoML
 
@@ -67,6 +63,18 @@ tol=0.0001,
 verbose=0,
 warm_start=False
 
+#### Figure 4 : Azure ML Studio AutoML Run Details - ####
+
+![](images/AutoMLRunDetails.png)
+
+#### Figure 5 : Azure ML Studio AutoML Run Metrics - ####
+
+![](images/AutoMLRunMetrics.png)
+
+#### Figure 6 : Azure ML Studio AutoML Run Meodel - ####
+
+![](images/AutoMLRunModel.png)
+
 ## Pipeline comparison
 
 The accuracy received from the HyperDrive Model was 90.94% whereas the accuracy received from the AutoML model was 91.77% . Thus the AutoML model outperformed our HyperDrive model by difference of 0.83% accuracy. 
@@ -83,7 +91,7 @@ Some areas of improvement for future experiments are:
 
 * Using Deep Learning to get better Accuracy.
 
-* Using different combination of the C and max-iter values used in the HyperDrive run.
+* Using different combination of the `C` and `max-iter` values used in the HyperDrive run.
 
 * Increasing the `experiment_timeout_minutes` inthe AutoML run.
 
