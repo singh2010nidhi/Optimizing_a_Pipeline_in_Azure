@@ -105,3 +105,14 @@ The compute cluster created can be deleted by running the following code:
 OR Directly from the Delete option - 
 
 ![](images/DeletingComputeCluster.png)
+
+## References
+
+[HyperDrive Config](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriveconfig?view=azure-ml-py)
+
+[Sklearn](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py)
+
+[Hyperparameter Tuning](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters)
+
+[AutoML](https://docs.microsoft.com/en-us/azure/machine-learning/concept-automated-ml)
+
