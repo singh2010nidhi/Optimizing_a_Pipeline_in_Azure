@@ -13,7 +13,7 @@ This model is then compared to an Azure AutoML run.
 ## Summary
 
 The Bank Marketing dataset used for this project contains data about bank customers using which we seek to predict whether a customer will subscribe to the fixed term deposit or not.
-The best performing model was a Voting Ensemble model produced by Auto ML run and it had an accuracy of 0.91648.
+The best performing model was a Voting Ensemble model produced by Auto ML run and it had an accuracy of 91.77%.
  
 ## Scikit-learn Pipeline
 
@@ -50,11 +50,26 @@ The Banking Datset was pre-processed using `clean_data` and the trained on the `
 `label_column`: y(result)
 `n_cross_validations`: 5
 
-In this the **Voting Ensemble** Model performed the best with an accuracy of `0.91648`.
+In this the **Voting Ensemble** Model performed the best with an accuracy of `91.77%`.
+
+The hyperparameters recommended by the AutoML for VotingEnsemble are:
+
+fit_intercept=True,
+intercept_scaling=1,
+l1_ratio=None,
+max_iter=100,
+multi_class='ovr',
+n_jobs=1,
+penalty='l1',
+random_state=None,
+solver='saga',
+tol=0.0001,
+verbose=0,
+warm_start=False
 
 ## Pipeline comparison
 
-The accuracy received from the HyperDrive Model was ___ whereas the accuracy received from the AutoML model was ___ . Thus the AutoML model outperformed our HyperDrive model by difference of __ accuracy. 
+The accuracy received from the HyperDrive Model was 90.94% whereas the accuracy received from the AutoML model was 91.77% . Thus the AutoML model outperformed our HyperDrive model by difference of 0.83% accuracy. 
 
 This difference of accuracy was mainly because of the architecture of the two algorithms. In the HyperDrive case we fixed the model to be Logistic Regression and went on to select the best hyperparameters by using HyperDrive. Whereas AutoML gave us a lot of flexibility by selecting the model itself from a range of models and tuning its hyperparameters. 
 
