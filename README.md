@@ -12,8 +12,9 @@ This model is then compared to an Azure AutoML run.
 
 ## Summary
 
-The Bank Marketing dataset used for this project contains data about bank customers using which we seek to predict whether a customer will subscribe to the fixed term deposit or not.
-The best performing model was a Voting Ensemble model produced by Auto ML run and it had an accuracy of 91.77%.
+The Bank Marketing dataset used for this project contains data about bank customers using which we seek to predict whether a customer will subscribe to the fixed term deposit or not. This dataset is related with direct marketing campaigns of a Portuguese banking institution. It contains input attributes such as `age`,  `job`, `marital status`, `education` etc and output attribute `y` which has values yes or no which states whether the client has subscribed to a term deposit or not.
+
+The best performing model was a **Voting Ensemble** model produced by Auto ML run and it had an accuracy of `91.77%`.
  
 ## Scikit-learn Pipeline
 
@@ -21,9 +22,24 @@ Firstly the data was taken from the UCI Bank Marketing dataset. Then the datset 
 
 The hyperparameters of the logistic regression model such as Inverse of Regularization strength (`C`) and Maximum Number of Iterations (`max_iter`) were tuned using Microsoft Azure Machine Learning's hyperparameter tuning package **HyperDrive**. 
 
-Then `RandomParameterSampling` was used as a parameter sampler. In this sampling algorithm, hyperparameter values are randomly selected from the defined search space and supports early termination of low-performance runs thus taking less computational efforts.
+Azure ML supports three types of sampling Random sampling, Grid sampling and Bayesian sampling. 
 
-Here `BanditPolicy` was used as a stopping policy. Bandit policy is based on slack factor/slack amount and evaluation interval. Bandit terminates runs where the primary metric is not within the specified slack factor/slack amount compared to the best performing run thus saving computational time.
+* Here `RandomParameterSampling` was used as a parameter sampler. In this sampling algorithm, hyperparameter values are randomly selected from the defined search space and supports early termination of low-performance runs thus taking less computational efforts.
+* The Grid Sampling performs a simple grid search over all possible values over search space and thus this can be very budget exhaustive.
+* Bayesian sampling is based on the Bayesian optimization algorithm. It picks samples based on how previous samples performed, so that new samples improve the primary metric. Thus this method also requires huge number of runs to improve metrics of future samples. So this method is also very compute intensive for our project.
+
+Thus Random Parameter Sampling is best suited for our project.
+
+Azure Machine Learning supports four early termination policies - Bandit policy, Median stopping policy, Truncation selection policy, No termination policy. 
+
+* Bandit policy is based on slack factor/slack amount and evaluation interval. Bandit terminates runs where the primary metric is not within the specified slack factor/slack amount compared to the best performing run.
+* Median stopping is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and terminates runs with primary metric values worse than the median of averages.
+* Truncation selection policy cancels a percentage of lowest performing runs at each evaluation interval. Runs are compared using the primary metric.
+* If no policy is specified, the hyperparameter tuning service will let all training runs execute to completion, i.e the No termination Policy.
+
+Here `BanditPolicy` was used as a stopping policy as Bandit Policy with a smaller allowable slack is the most aggressively compute saving policy.
+
+
 
 #### Figure 2 : Azure ML Studio Hyper Drive Run Details - ####
 
